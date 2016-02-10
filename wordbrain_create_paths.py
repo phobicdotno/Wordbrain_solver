@@ -4,7 +4,7 @@ import codecs   # For UTF-8 imports
 import json     # For saving to file
 
 
-def show4x4pathsPossible(endpoints5x5, fiveGraph):
+def show5x5pathsPossible(endpoints5x5, fiveGraph):
     all_paths = {}
     for item in fiveGraph:
         for i in range(1,len(endpoints5x5[item])):
@@ -26,7 +26,6 @@ pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25):
     pos7, pos8, pos9, pos10, pos11, pos12, pos13, pos14, pos15, pos16,
     pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25)
 
-    start_time = time.time()
     possibleFive = show5x5pathsPossible(endpoints5x5, fiveGraph)
 
     f = open('possibleFour.txt', 'w')
