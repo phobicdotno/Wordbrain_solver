@@ -155,3 +155,35 @@ def make5x5graph(pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, pos10, po
             pos23: [pos23, pos17, pos18, pos19, pos24, pos22],
             pos24: [pos24, pos18, pos19, pos20, pos25, pos23],
             pos25: [pos25, pos19, pos20, pos24]}
+
+def makeEndPoints5x5(pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, pos10, pos11, pos12, pos13, pos14, pos15, pos16):
+    """
+    Possible endpoints from startpoint on 4x4
+    First value is Start node.
+    """
+    return  { pos1: [pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, pos10, pos11, pos12, pos13, pos14, pos15, pos16, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+              pos2: [pos2, pos1, pos3, pos4, pos5, pos6, pos7, pos8, pos9, pos10, pos11, pos12, pos13, pos14, pos15, pos16, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+              pos3: [pos3, pos2, pos1, pos4, pos5, pos6, pos7, pos8, pos9, pos10, pos11, pos12, pos13, pos14, pos15, pos16, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+              pos4: [pos4, pos3, pos2, pos1, pos5, pos6, pos7, pos8, pos9, pos10, pos11, pos12, pos13, pos14, pos15, pos16, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+              pos5: [pos5, pos4, pos3, pos2, pos1, pos6, pos7, pos8, pos9, pos10, pos11, pos12, pos13, pos14, pos15, pos16, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+              pos6: [pos6, pos5, pos4, pos3, pos2, pos1, pos7, pos8, pos9, pos10, pos11, pos12, pos13, pos14, pos15, pos16, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+              pos7: [pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos8, pos9, pos10, pos11, pos12, pos13, pos14, pos15, pos16, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+              pos8: [pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos9, pos10, pos11, pos12, pos13, pos14, pos15, pos16, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+              pos9: [pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos10, pos11, pos12, pos13, pos14, pos15, pos16, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+             pos10: [pos10, pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos11, pos12, pos13, pos14, pos15, pos16, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+             pos11: [pos11, pos10, pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos12, pos13, pos14, pos15, pos16, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+             pos12: [pos12, pos11, pos10, pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos13, pos14, pos15, pos16, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+             pos13: [pos13, pos12, pos11, pos10, pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos14, pos15, pos16, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+             pos14: [pos14, pos13, pos12, pos11, pos10, pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos15, pos16, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+             pos15: [pos15, pos14, pos13, pos12, pos11, pos10, pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos16, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+             pos16: [pos16, pos15, pos14, pos13, pos12, pos11, pos10, pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+             pos17: [pos17, pos16, pos15, pos14, pos13, pos12, pos11, pos10, pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+             pos18: [pos18, pos17, pos16, pos15, pos14, pos13, pos12, pos11, pos10, pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos19, pos20, pos21, pos22, pos23, pos24, pos25],
+             pos19: [pos19, pos18, pos17, pos16, pos15, pos14, pos13, pos12, pos11, pos10, pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos20, pos21, pos22, pos23, pos24, pos25],
+             pos20: [pos20, pos19, pos18, pos17, pos16, pos15, pos14, pos13, pos12, pos11, pos10, pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos21, pos22, pos23, pos24, pos25],
+             pos21: [pos21, pos20, pos19, pos18, pos17, pos16, pos15, pos14, pos13, pos12, pos11, pos10, pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos22, pos23, pos24, pos25],
+             pos22: [pos22, pos21, pos20, pos19, pos18, pos17, pos16, pos15, pos14, pos13, pos12, pos11, pos10, pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos23, pos24, pos25],
+             pos23: [pos23, pos22, pos21, pos20, pos19, pos18, pos17, pos16, pos15, pos14, pos13, pos12, pos11, pos10, pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos24, pos25],
+             pos24: [pos24, pos23, pos22, pos21, pos20, pos19, pos18, pos17, pos16, pos15, pos14, pos13, pos12, pos11, pos10, pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1, pos25],
+             pos25: [pos25, pos24, pos23, pos22, pos21, pos20, pos19, pos18, pos17, pos16, pos15, pos14, pos13, pos12, pos11, pos10, pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1]}
+              
