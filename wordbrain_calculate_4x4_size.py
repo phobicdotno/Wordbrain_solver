@@ -39,6 +39,7 @@ def show4x4pathsPossible(endpoints4x4, fourGraph):
         for i in range(1,len(endpoints4x4[item])):
             print('Started ' + str(item) + ' to ' + str(endpoints4x4[item][i])) 
             all_paths.update(find_all_paths_from_to(fourGraph, fourGraph[item][0], endpoints4x4[item][i]))
+            print('Possible paths: ' + str(len(all_paths)))
         json.dump(all_paths, f)
         f.close()
         print('Created: possibleFourFrom-' + str(fourGraph[item][0]) + '.txt\n' )
