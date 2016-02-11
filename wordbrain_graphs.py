@@ -156,9 +156,9 @@ def make5x5graph(pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, pos10, po
             pos24: [pos24, pos18, pos19, pos20, pos25, pos23],
             pos25: [pos25, pos19, pos20, pos24]}
 
-def makeEndPoints5x5(pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, pos10, pos11, pos12, pos13, pos14, pos15, pos16):
+def makeEndPoints5x5(pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, pos10, pos11, pos12, pos13, pos14, pos15, pos16, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25):
     """
-    Possible endpoints from startpoint on 4x4
+    Possible endpoints from startpoint on 5x5
     First value is Start node.
     """
     return  { pos1: [pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, pos10, pos11, pos12, pos13, pos14, pos15, pos16, pos17, pos18, pos19, pos20, pos21, pos22, pos23, pos24, pos25],

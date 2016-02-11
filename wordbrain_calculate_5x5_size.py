@@ -5,8 +5,6 @@ import time
 import codecs   # For UTF-8 imports
 import json     # For saving to file
 from wordbrain_graphs import *
-from wordbrain_good_code import *
-from wordbrain_create_paths import *
 
 # variables
 wordlist = ''
@@ -39,14 +37,15 @@ def find_all_paths_from_to(graph, start, end, path=[]):
 
 def show5x5pathsPossible(endpoints5x5, fiveGraph):
     all_paths = {}
+    tempPath={}
     for item in fiveGraph:
-        tempPath={}
         for i in range(1,len(endpoints5x5[item])):
             tempPath(find_all_paths_from_to(fiveGraph,
             fiveGraph[item][0], endpoints5x5[item][i]))
             f = open('possibleFiveFrom-' + str(fiveGraph[item][0]) + '-to-' + str(endpoints5x5[item][i]) + '.txt', 'w')
             json.dump(tempPath, f)
             f.close()
+            tempPath={}
 
     return all_paths
 
