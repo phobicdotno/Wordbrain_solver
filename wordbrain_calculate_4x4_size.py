@@ -1,4 +1,4 @@
-# WORDBRAIN SOLUTION
+# WORDBRAIN - Gererates all possible 4x4 paths
 
 import string
 import time
@@ -43,6 +43,7 @@ def show4x4pathsPossible(endpoints4x4, fourGraph):
 #            f.close()
         json.dump(all_paths, f)
         f.close()
+        print('Created: possibleFourFrom-' + str(fourGraph[item][0]) + '.txt\n' )
     return all_paths
 
 def manualInput4x4(wordlist, pos1, pos2, pos3, pos4, pos5, pos6, pos7,
