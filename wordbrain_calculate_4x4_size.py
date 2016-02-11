@@ -33,7 +33,7 @@ def find_all_paths_from_to(graph, start, end, path=[]):
     return paths
 
 def show4x4pathsPossible(endpoints4x4, fourGraph):
-    all_paths = {}
+#    all_paths = {}
     for item in fourGraph:
         f = open('possibleFourFrom-' + str(fourGraph[item][0]) + '.txt', 'w')
         
