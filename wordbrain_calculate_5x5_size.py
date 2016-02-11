@@ -5,6 +5,7 @@ import time
 import codecs   # For UTF-8 imports
 import json     # For saving to file
 from wordbrain_graphs import *
+from wordbrain_good_code import *
 
 # variables
 wordlist = ''
