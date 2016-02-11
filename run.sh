@@ -1,2 +1,2 @@
 #!binsh 
-python wordbrain_calculate_5x5_size.py 
+python wordbrain_calculate_4x4_size.py
