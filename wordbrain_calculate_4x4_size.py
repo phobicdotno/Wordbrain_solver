@@ -1,4 +1,4 @@
-# WORDBRAIN - Gererates all possible 4x4 paths
+# WORDBRAIN - Generates all possible 4x4 paths
 
 import string
 import time
