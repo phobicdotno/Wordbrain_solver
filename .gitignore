@@ -49,6 +49,9 @@ coverage.xml
 *.mo
 *.pot
 
+# Generated text files
+*.txt
+
 # Django stuff:
 *.log
 
