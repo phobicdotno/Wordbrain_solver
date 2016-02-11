@@ -38,7 +38,10 @@ def show5x5pathsPossible(endpoints5x5, fiveGraph):
         f = open('possibleFiveFrom-' + str(fiveGraph[item][0]) + '.txt', 'w')
         for i in range(1,len(endpoints5x5[item])):
             print('Started ' + str(item) + ' to ' + str(endpoints5x5[item][i]))         # How far we are
+            start_time = time.time()
             all_paths = find_all_paths_from_to(fiveGraph, fiveGraph[item][0], endpoints5x5[item][i])
+            end_time = time.time() - start_time
+            print('\n' + 'Time used on finding paths: ' + str(end_time))
         print('Possible paths: ' + str(len(all_paths)))
         json.dump(all_paths, f)
         f.close()
