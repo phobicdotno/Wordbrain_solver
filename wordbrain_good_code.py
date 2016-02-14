@@ -2,6 +2,7 @@ WORDLIST_FILENAME = "bokmaal_2-9-bokst.txt"
 #WORDLIST_FILENAME = "test.txt"
 import json
 
+
 def loadWords():
     """
     Loads all the words from the dictionary
@@ -12,7 +13,7 @@ def loadWords():
     return wordlist
 
 def loadDict3():
-    file = open('wordDictStart3.txt', 'r', encoding='utf-8-sig')
+    file = open('wordDict-2-9.txt', 'r', encoding='utf-8-sig')
     wordDictStart3 = json.load(file)
     file.close()
     return wordDictStart3
@@ -37,14 +38,16 @@ def find_all_paths_from_to(graph, start, end, wordDictStart3, path=[]):
                 for char in newpath:
                     tempText+=''.join(char.lstrip('[]'))
                     tempText = ''.join([i for i in tempText if not i.isdigit()]) # Remove all numbers before checking length of string
-                print('Text found:' + tempText)    
-                if len(tempText) > 2:
-                    print(tempText + ' ' + tempText[0:3] + ' ' + str(tempText[0:3] in wordDictStart3))
-                    if wordDictStart3[tempText[0:3]]:
-                        paths.update({tempText: tempText})
+                # print('Text found: ' + tempText + ' - ' + str(tempText in wordDictStart3))    # DEBUG
+                if tempText in wordDictStart3:
+                    paths.update({tempText: tempText})
+                else:
+                    paths.update({})
                 tempText = ''
             
 
 
     return paths
+
+# manualInput3x3(wordlist, 'f','t','s','a','e','e','t','t','t', wordDictStart3)    # DEBUG
 

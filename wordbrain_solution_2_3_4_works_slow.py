@@ -10,6 +10,8 @@ from wordbrain_good_code import *
 # variables
 words=''
 wordlist = loadWords()
+global wordDictStart3
+wordDictStart3 = loadDict3()
 
 
 def show2x2pathsPossible(endpoints2x2, twoGraph, wordDictStart3):
@@ -105,7 +107,6 @@ def manualInput4x4(wordlist, pos1, pos2, pos3, pos4, pos5, pos6, pos7,
     f.close()
 
 def inputchar(wordlist):
-    wordDictStart3 = loadDict3()
     char = []
     input_str = input('Skriv inn dine bokstaver:' + '\n')
 #    word_length = input("Velg ordlengde (A - for alle): ")
@@ -138,5 +139,5 @@ def inputchar(wordlist):
         print('Time used: '),print(end_time)    
 
 # Run program
-inputchar(wordlist)
+#inputchar(wordlist)
 
