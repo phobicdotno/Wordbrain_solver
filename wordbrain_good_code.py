@@ -1,5 +1,6 @@
 WORDLIST_FILENAME = "bokmaal_2-9-bokst.txt"
 #WORDLIST_FILENAME = "test.txt"
+import json
 
 def loadWords():
     """
@@ -10,11 +11,13 @@ def loadWords():
     print("  ", len(wordlist), "words loaded.")
     return wordlist
 
-del loadDict3():
+def loadDict3():
     file = open('wordDictStart3.txt', 'r', encoding='utf-8-sig')
     wordDictStart3 = json.load(file)
     file.close()
     return wordDictStart3
+
+wordDictStart3 = loadDict3()
 
 def find_all_paths_from_to(graph, start, end, wordDictStart3, path=[]):
     """
@@ -36,8 +39,10 @@ def find_all_paths_from_to(graph, start, end, wordDictStart3, path=[]):
                     tempText+=''.join(char.lstrip('[]'))
                     tempText = ''.join([i for i in tempText if not i.isdigit()])
                 # Remove all numbers before checking length of string
-                if wordDictStart3[tempText[0:3]]:
-                    paths.update({tempText: tempText})
-                    tempText = ''
+                if len(tempText) > 2:
+                    print(str(tempText[0:3]) + ' - ' + str(wordDictStart3[tempText[0:3]]))
+                    if wordDictStart3[tempText[0:3]]:
+                        paths.update({tempText: tempText})
+                        tempText = ''
     return paths
 
