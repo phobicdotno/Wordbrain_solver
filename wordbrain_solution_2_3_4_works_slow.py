@@ -105,6 +105,7 @@ def manualInput4x4(wordlist, pos1, pos2, pos3, pos4, pos5, pos6, pos7,
     f.close()
 
 def inputchar(wordlist):
+    wordDictStart3 = loadDict3()
     char = []
     input_str = input('Skriv inn dine bokstaver:' + '\n')
 #    word_length = input("Velg ordlengde (A - for alle): ")
@@ -120,13 +121,19 @@ def inputchar(wordlist):
         
     if len(input_str) == 9:
         start_time = time.time()
-        manualInput3x3(wordlist, input_str[0], input_str[1], input_str[2], input_str[3], input_str[4], input_str[5], input_str[6], input_str[7], input_str[8], wordDictStart3)
+        manualInput3x3(wordlist, input_str[0], input_str[1],
+        input_str[2], input_str[3], input_str[4], input_str[5],
+        input_str[6], input_str[7], input_str[8], wordDictStart3)
         end_time = time.time() - start_time
         print('Total time used: '),print(end_time)    
 
     if len(input_str) == 16:
         start_time = time.time()
-        manualInput4x4(wordlist, input_str[0], input_str[1], input_str[2], input_str[3], input_str[4], input_str[5], input_str[6], input_str[7], input_str[8], input_str[9], input_str[10], input_str[11], input_str[12], input_str[13], input_str[14], input_str[15], wordDictStart3)
+        manualInput4x4(wordlist, input_str[0], input_str[1],
+        input_str[2], input_str[3], input_str[4], input_str[5],
+        input_str[6], input_str[7], input_str[8], input_str[9],
+        input_str[10], input_str[11], input_str[12], input_str[13],
+        input_str[14], input_str[15], wordDictStart3)
         end_time = time.time() - start_time
         print('Time used: '),print(end_time)    
 

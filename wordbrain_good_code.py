@@ -17,7 +17,6 @@ def loadDict3():
     file.close()
     return wordDictStart3
 
-wordDictStart3 = loadDict3()
 
 def find_all_paths_from_to(graph, start, end, wordDictStart3, path=[]):
     """
@@ -33,16 +32,19 @@ def find_all_paths_from_to(graph, start, end, wordDictStart3, path=[]):
     tempText = ''
     for node in graph[start]:
         if node not in path:
-            newpaths = find_all_paths_from_to(graph, node, end, path)
+            newpaths = find_all_paths_from_to(graph, node, end, wordDictStart3, path)
             for newpath in newpaths:
                 for char in newpath:
                     tempText+=''.join(char.lstrip('[]'))
-                    tempText = ''.join([i for i in tempText if not i.isdigit()])
-                # Remove all numbers before checking length of string
+                    tempText = ''.join([i for i in tempText if not i.isdigit()]) # Remove all numbers before checking length of string
+                print('Text found:' + tempText)    
                 if len(tempText) > 2:
-                    print(str(tempText[0:3]) + ' - ' + str(wordDictStart3[tempText[0:3]]))
+                    print(tempText + ' ' + tempText[0:3] + ' ' + str(tempText[0:3] in wordDictStart3))
                     if wordDictStart3[tempText[0:3]]:
                         paths.update({tempText: tempText})
-                        tempText = ''
+                tempText = ''
+            
+
+
     return paths
 
