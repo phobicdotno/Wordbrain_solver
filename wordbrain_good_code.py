@@ -10,12 +10,17 @@ def loadWords():
     print("  ", len(wordlist), "words loaded.")
     return wordlist
 
-def find_all_paths_from_to(graph, start, end, path=[]):
+del loadDict3():
+    file = open('wordDictStart3.txt', 'r', encoding='utf-8-sig')
+    wordDictStart3 = json.load(file)
+    file.close()
+    return wordDictStart3
+
+def find_all_paths_from_to(graph, start, end, wordDictStart3, path=[]):
     """
     Finds all possible path from startnode to endnode
     Returns: A dictionary
     """
-    input_len = 3
     path = path + [start]
     if start == end:
         return [path]
@@ -31,7 +36,7 @@ def find_all_paths_from_to(graph, start, end, path=[]):
                     tempText+=''.join(char.lstrip('[]'))
                     tempText = ''.join([i for i in tempText if not i.isdigit()])
                 # Remove all numbers before checking length of string
-                if len(tempText) >= input_len:
+                if wordDictStart3[tempText[0:3]]:
                     paths.update({tempText: tempText})
                     tempText = ''
     return paths
