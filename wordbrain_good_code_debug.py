@@ -32,7 +32,11 @@ def find_all_paths_from_to(graph, start, end, wordDictionary, wordDictionaryFirs
     paths = {}
     tempText = ''
     for node in graph[start]:
-
+        # Value example: ['t3', 'a', 'e1', 's', 'e2', 't4']
+        tempNode = ''.join([i for i in path])   # Convert dict to string with numbering
+        tempNode = ''.join([i for i in tempNode if not i.isdigit()])    # Remove numbers
+        # Value example: taeset
+        print(tempNode)
         if node not in path:
             newpaths = find_all_paths_from_to(graph, node, end, wordDictionary, wordDictionaryFirst3, path)
 
@@ -42,7 +46,7 @@ def find_all_paths_from_to(graph, start, end, wordDictionary, wordDictionaryFirs
                     tempText = ''.join([i for i in tempText if not i.isdigit()]) # Remove all numbers before checking length of string
                 if tempText in wordDictionary:
                     paths.update({tempText: tempText})
-                    print(tempText)
+                    #print(tempText)
                 tempText = ''
     return paths
 
