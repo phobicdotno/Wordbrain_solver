@@ -5,18 +5,32 @@ import time
 import codecs   # For UTF-8 imports
 import json     # For saving to file
 from wordbrain_graphs import *
-from wordbrain_good_code import *
+from wordbrain_good_code_debug import *
 
 # variables
 words=''
 wordlist = loadWords()
 global wordDictionary
-global wordDictionaryFirst3
+global wordDictionaryFirst
+wordDictionaryFirst = {}
 wordDictionary = loadDict('wordDict-2-9.txt')
 wordDictionaryFirst3 = loadDict('wordDictStart3.txt')
+wordDictionaryFirst4 = loadDict('wordDictStart4.txt')
+wordDictionaryFirst5 = loadDict('wordDictStart5.txt')
+wordDictionaryFirst6 = loadDict('wordDictStart6.txt')
+wordDictionaryFirst7 = loadDict('wordDictStart7.txt')
+wordDictionaryFirst8 = loadDict('wordDictStart8.txt')
+wordDictionaryFirst9 = loadDict('wordDictStart9.txt')
+
+wordDictionaryFirst.update({'F3': wordDictionaryFirst3})
+wordDictionaryFirst.update({'F4': wordDictionaryFirst4})
+wordDictionaryFirst.update({'F5': wordDictionaryFirst5})
+wordDictionaryFirst.update({'F6': wordDictionaryFirst6})
+wordDictionaryFirst.update({'F7': wordDictionaryFirst7})
+wordDictionaryFirst.update({'F8': wordDictionaryFirst8})
 
 
-def show2x2pathsPossible(endpoints2x2, twoGraph, wordDictionary, wordDictionaryFirst3):
+def show2x2pathsPossible(endpoints2x2, twoGraph, wordDictionary, wordDictionaryFirst):
     all_paths = {}
     for item in twoGraph:
 	#Result: ['a', 'b', 'c', 'd']
@@ -24,60 +38,52 @@ def show2x2pathsPossible(endpoints2x2, twoGraph, wordDictionary, wordDictionaryF
             # twoGraph[item][0] = key/start node
             # endpoints2x2[item][i] = end node
             all_paths.update(find_all_paths_from_to(twoGraph,
-            twoGraph[item][0], endpoints2x2[item][i], wordDictionary, wordDictionaryFirst3))
+            twoGraph[item][0], endpoints2x2[item][i], wordDictionary, wordDictionaryFirst))
             #Result: ['bd', 'bcad', 'bcd', 'bacd', 'bad']
     return all_paths
 
-def manualInput2x2(wordlist, ch0, ch1, ch2, ch3, wordDictionary, wordDictionaryFirst3):
+def manualInput2x2(wordlist, ch0, ch1, ch2, ch3, wordDictionary, wordDictionaryFirst):
     twoGraph = make2x2graph(ch0, ch1, ch2, ch3)
     print(twoGraph)
     endpoints2x2 = makeEndPoints2x2(ch0, ch1, ch2, ch3)
     print(endpoints2x2)  
-    possibleTwo = show2x2pathsPossible(endpoints2x2, twoGraph, wordDictionary, wordDictionaryFirst3)
+    possibleTwo = show2x2pathsPossible(endpoints2x2, twoGraph, wordDictionary, wordDictionaryFirst)
     print('\n', 'Possible paths'), print(possibleTwo)
     possibleTwo = list(set(possibleTwo))  #  Sets are unordered collections of distinct objects.
     print('\n', 'Removed duplicated with - set'), print(possibleTwo)
     possibleTwo = list(set(possibleTwo).intersection(set(wordlist)))  # Get all words found, that exist in the dictionary
     print('\n', 'Words in Wordlist:'), print(sorted(possibleTwo, key=len)) 
 
-def show3x3pathsPossible(endpoints3x3, threeGraph, wordDictionary, wordDictionaryFirst3):
+def show3x3pathsPossible(endpoints3x3, threeGraph, wordDictionary, wordDictionaryFirst):
     all_paths = {}
     for item in threeGraph:
 	#Result: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
         for i in range(1,len(endpoints3x3[item])):
-#            start_time = time.time()           
             all_paths.update(find_all_paths_from_to(threeGraph,
                                                     threeGraph[item][0],
                                                     endpoints3x3[item][i],
-                                                    wordDictionary, wordDictionaryFirst3))
-#            end_time = time.time() - start_time
-#            print('Time used on all paths from ' + threeGraph[item][0] +
-#            ' to ' + endpoints3x3[item][i] + ': ' + str(end_time))
+                                                    wordDictionary, wordDictionaryFirst))
     return all_paths
 
 
-def manualInput3x3(wordlist, ch0, ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8, wordDictionary, wordDictionaryFirst3):
+def manualInput3x3(wordlist, ch0, ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8, wordDictionary, wordDictionaryFirst):
     possibleThree = {}
     threeGraph = make3x3graph(ch0, ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8)
     endpoints3x3 = makeEndPoints3x3(ch0, ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8)
-    possibleThree = show3x3pathsPossible(endpoints3x3, threeGraph, wordDictionary, wordDictionaryFirst3)
-    f = open('possibleThreeFilter3.txt', 'w')
-    json.dump(possibleThree, f)
-    f.close()
-    possibleThree = list(set(possibleThree))  #  Sets are unordered collections of distinct objects.
-    possibleThree = list(set(possibleThree).intersection(set(wordlist)))  # Get all words found, that exist in the dictionary
+    possibleThree = show3x3pathsPossible(endpoints3x3, threeGraph, wordDictionary, wordDictionaryFirst)
+    print(possibleThree)
     print('\n', 'Words in Wordlist:'), print(sorted(possibleThree, key=len)) # Print list sorted by length        
 
-def show4x4pathsPossible(endpoints4x4, fourGraph, wordDictionary, wordDictionaryFirst3):
+def show4x4pathsPossible(endpoints4x4, fourGraph, wordDictionary, wordDictionaryFirst):
     all_paths = {}
     for item in fourGraph:
         for i in range(1,len(endpoints4x4[item])):
             all_paths.update(find_all_paths_from_to(fourGraph,
-            fourGraph[item][0], endpoints4x4[item][i], wordDictionary, wordDictionaryFirst3))
+            fourGraph[item][0], endpoints4x4[item][i], wordDictionary, wordDictionaryFirst))
     return all_paths
 
 def manualInput4x4(wordlist, pos1, pos2, pos3, pos4, pos5, pos6, pos7,
-    pos8, pos9, pos10, pos11, pos12, pos13, pos14, pos15, pos16, wordDictionary, wordDictionaryFirst3):
+    pos8, pos9, pos10, pos11, pos12, pos13, pos14, pos15, pos16, wordDictionary, wordDictionaryFirst):
 
     possibleFour = {}
     fourGraph = make4x4graph(pos1, pos2, pos3, pos4, pos5, pos6, pos7,
@@ -86,7 +92,7 @@ def manualInput4x4(wordlist, pos1, pos2, pos3, pos4, pos5, pos6, pos7,
     pos7, pos8, pos9, pos10, pos11, pos12, pos13, pos14, pos15, pos16)
 
     start_time = time.time()
-    possibleFour = show4x4pathsPossible(endpoints4x4, fourGraph, wordDictionary, wordDictionaryFirst3)
+    possibleFour = show4x4pathsPossible(endpoints4x4, fourGraph, wordDictionary, wordDictionaryFirst)
 
     f = open('possibleFour.txt', 'w')
     json.dump(possibleFour, f)
@@ -120,13 +126,13 @@ def inputchar(wordlist):
 #        char.append(letter)
 
     if len(input_str) == 4:
-        manualInput2x2(wordlist, input_str[0], input_str[1], input_str[2], input_str[3], wordDictionary, wordDictionaryFirst3)
+        manualInput2x2(wordlist, input_str[0], input_str[1], input_str[2], input_str[3], wordDictionary, wordDictionaryFirst)
         
     if len(input_str) == 9:
         start_time = time.time()
         manualInput3x3(wordlist, input_str[0], input_str[1],
         input_str[2], input_str[3], input_str[4], input_str[5],
-        input_str[6], input_str[7], input_str[8], wordDictionary, wordDictionaryFirst3)
+        input_str[6], input_str[7], input_str[8], wordDictionary, wordDictionaryFirst)
         end_time = time.time() - start_time
         print('Total time used: '),print(end_time)    
 
@@ -136,10 +142,10 @@ def inputchar(wordlist):
         input_str[2], input_str[3], input_str[4], input_str[5],
         input_str[6], input_str[7], input_str[8], input_str[9],
         input_str[10], input_str[11], input_str[12], input_str[13],
-        input_str[14], input_str[15], wordDictionary, wordDictionaryFirst3)
+        input_str[14], input_str[15], wordDictionary, wordDictionaryFirst)
         end_time = time.time() - start_time
         print('Time used: '),print(end_time)    
 
 # Run program
-#inputchar(wordlist)
+inputchar(wordlist)
 
